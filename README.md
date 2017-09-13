@@ -1,3 +1,3 @@
 # Optimization algorithms written in pseudocode
 
-- [Robust Tabou Search](http://www.google.com "link to google")
+- [Robust Tabou Search](https://github.com/geoffreyp/optimization-algorithms-pseudocode/blob/master/robust_tabou_search.md)
