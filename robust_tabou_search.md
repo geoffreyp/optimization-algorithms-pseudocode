@@ -26,7 +26,8 @@ for (k = 0 ; k < max_iteration_number ; k = k + 1){
     */
     for (i = 0; i < n-1; i = i+1){
         for (j = i+1; j < n; j = j+1){
-            autorized = (tabu_list[i][p[j]] < current_iteration) || (tabu_list[j][p[i]] < current_iteration);
+            autorized = (tabu_list[i][p[j]] < current_iteration) 
+                          || (tabu_list[j][p[i]] < current_iteration);
             
             if (autorized && delta[i][j] < min_delta){
                 i_retained = i; 
@@ -44,10 +45,15 @@ for (k = 0 ; k < max_iteration_number ; k = k + 1){
         swap(solution_current, i_retained, j_retained)
         updateTabuList(tabulist, solution_current, i_retained, j_retained)
         
-        if (i != i_retained && i != j_retained && j != i_retained && j != j_retained) {
-            delta[i][j] = compute_delta_fast();
-        }else{
-            delta[i][j] = compute_delta();
+        for (i = 0; i < n-1; i = i+1){
+            for (j = i+1; j < n; j = j+1){
+                if (i != i_retained && i != j_retained 
+                    && j != i_retained && j != j_retained) {
+                    delta[i][j] = compute_delta_fast();
+                }else{
+                    delta[i][j] = compute_delta();
+                }
+            }
         }
         
         if (solution_k.fitness < solution_best.fitness){
