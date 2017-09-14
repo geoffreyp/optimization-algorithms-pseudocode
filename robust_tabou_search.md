@@ -6,7 +6,7 @@ Parameters :
 - max_iteration_number = number of iterations
 - n = size of the solution
 
-```
+```c
 /*
     Init
 */
