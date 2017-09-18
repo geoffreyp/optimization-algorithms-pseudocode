@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	
+	\begin{algorithm}
+		\caption{Hill Climbing First Improvement}
+		\label{array-sum}
+		\begin{algorithmic}[1]
+			\Function{hcfi}{$int$ $max\_nb\_eval$}
+			\State $s = random\_solution()$
+			\Repeat 
+				\State $s' = getRandomNeighbor(s)$
+				 \If{$fitness(s') < fitness(s)$}
+					 \State s' = s
+				 \EndIf
+				 
+			{$nb\_eval = nb\_eval + 1$}
+			\Until{$nb\_eval \leq max\_nb\_eval$}
+			\State Return $s$
+			\EndFunction
+		\end{algorithmic}
+	\end{algorithm}
+	
+		\begin{algorithm}
+			\caption{Hill Climbing Best Improvement}
+			\label{array-sum}
+			\begin{algorithmic}[1]
+				\Function{hcfi}{$int$ $max\_nb\_eval$}
+				\State $s = random\_solution()$
+				\Repeat 
+				\State $s' = getBestNeighbor(s)$
+				
+				\State s' = s
+				
+				{$nb\_eval = nb\_eval + 1$}
+				\Until{$nb\_eval \leq max\_nb\_eval$}
+				\State Return $s$
+				\EndFunction
+			\end{algorithmic}
+		\end{algorithm}
+	
+\end{document}
