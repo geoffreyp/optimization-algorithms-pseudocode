@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	
+	
+	\begin{algorithm}
+		\caption{Robust Tabou Search}
+		\label{array-sum}
+		\begin{algorithmic}[1]
+			\Function{rots}{int $max\_nb\_eval$}
+			\State $current\_solution \gets$ {random\_solution()}
+			\State $best\_solution \gets current\_solution$
+			\State $tabu\_list \gets$ {init\_tabu\_list()}
+			\State $mat\_costs \gets$ {init\_mat\_costs()}
+			
+			\For{$k$$ $ $between$$ $ $1$ $ $ $and$ $ $ $max\_nb\_eval$}
+			\State $best\_neighbor \gets$ {getBestNeighborAllowed($current\_solution$)}
+			
+			\If{$best\_neighbor$}
+				\State $current\_solution \gets best\_neighbor$
+				\State {tabu\_list.push($best\_neighbor.move$)}
+				\State {compute($mat\_costs$)}
+				
+				\If{fitness($current\_solution$) is better than fitness($best\_solution$)}
+					\State $best\_solution \gets current\_solution$
+				\EndIf
+				
+			\Else
+				\State {print }{"All moves are tabous"}
+			\EndIf
+			
+			\EndFor
+			
+			\State 
+			\Return $best\_solution$
+			\EndFunction
+		\end{algorithmic}
+	\end{algorithm}
+	
+\end{document}
